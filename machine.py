@@ -1,3 +1,5 @@
+import re
+
 class Machine:
     def __init__(self, wheels, board, reflector):
         self.wheels = wheels
@@ -32,7 +34,9 @@ class Machine:
 
     def encryptText(self, text):
         str1 = ""
-        return str1.join([chr(self.encryptLetter(letter) + 97) for letter in text.strip(" ").lower()])
+        cleanInput = re.sub(r'[^\w\s]', '', text.replace(' ', '').lower())
+        encryptedText = str1.join([chr(self.encryptLetter(letter) + 97) for letter in cleanInput])
+        return encryptedText
 
     def getWheels(self):
         return self.wheels

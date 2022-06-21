@@ -4,7 +4,6 @@ import plugBoard
 import rotorWheel
 import Enigma_1_properties
 
-
 def main():
     wheel1 = rotorWheel.RotorWheel(0, Enigma_1_properties.wheel1, Enigma_1_properties.wheel1Notch)
     wheel2 = rotorWheel.RotorWheel(0, Enigma_1_properties.wheel2, Enigma_1_properties.wheel2Notch)
@@ -19,7 +18,7 @@ def main():
     EnigmaEncode = machine.Machine([wheel1, wheel2, wheel3], None, reflectorA)
     EnigmaDecode = machine.Machine([wheel1, wheel2, wheel3], None, reflectorA)
 
-    output = EnigmaEncode.encryptText("")
+    output = EnigmaEncode.encryptText("we ride at dawn")
     print(output)
     #print(EnigmaDecode.decrypt([0, 0, 0], None, output))
 
